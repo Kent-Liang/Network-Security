@@ -1,0 +1,55 @@
+
+<link rel="stylesheet" href="php-txt-db-api.css" type="text/css">
+
+<title>News</title><div align="center">
+  <h1 align="left"> Changelog</h1>
+  <div align="left">Because the changelog.txt file is in english, only important 
+    changes will be written here!<br>
+    See the changelog.txt file for the other changes.</div>
+  <h2 align="left">New since Version 0.2.0-Alpha-01</h2>
+  <p align="left">A lot! See the changelog.</p>
+  <h2 align="left">New since Version 0.1.5-Alpha-01</h2>
+  <p align="left">THE TABLE FORMAT HAS CHANGED AGAIN!<br>
+    THE TABLE-FILES HAVE A THIRD LINE FOR THE COLUMN-INFORMATIONS NOW.<br>
+    IN THIS LINE ARE THE DEFAULT VALUES FOR EACH COLUMN.<br>
+    TO MAKE PORTING FROM PREVIOUS VERSION EASY, JUST ADD A NEW LINE UNDER<br>
+    THE DATATYPES LINE, AND WRITE AS MANY # AS THE LINE ABOVE HAS, AND<br>
+    NOTHING ELSE. OF COURSE YOU CAN ALSO SPECIFY THE DEFAULT VALUES IN THIS<br>
+    LINE NOW :)<br>
+  </p>
+  <p align="left"><a href="examples/tut2.html">Here</a> you can see how a table 
+    in the new format looks like.</p>
+  <p align="left">Aliases for Tables (SELECT only).</p>
+  <p align="left">Added Infos about Reserved words.</p>
+  <p align="left">The CREATE TABLE Statement changed, you can use the Keyword 
+    DEFAULT now, to<br>
+    specify a Default Value for a column.</p>
+  <h2 align="left">New since Version 0.1.4-Beta-01</h2>
+  <div align="left">
+    <p>The latest alpha seems to work fine, so the api has beta status now.<br>
+      Please note that this should be the most stable version of the api at <br>
+      the moment. The old versions without &quot;-Beta&quot; like &quot;0.1.1&quot; 
+      aren't more<br>
+      stable. I just had another versioning convention in early developement.<br>
+    </p>
+    <p><b>Windows </b>(\r\n==\xd\xa) and Unix (\n==\xa)<b> newlines are supported 
+      now.</b><br>
+      Please note that the txt-db-api still only writes Unix newlines, but<br>
+      tables which contain Windows newlines are also read correctly now.<br>
+      MAC (\r==\xd) Users should convert their text files, to use another <br>
+      newline format. </p>
+  </div>
+  <h2 align="left">New since Version 0.1.3-Alpha-02</h2>
+  <p align="left"><b>ATTENTION: THE TABLE FORMAT CHANGED IN VERSION 0.1.3-Alpha-02! 
+    <br>
+    WHEN A # IS PART OF A VALUE IT ISN'T STORED AS %# ANYMORE, <br>
+    IT'S STORED AS %h NOW !! TO CONVERT YOUR OLD TABLE FILES JUST<br>
+    OPEN IT IN A TEXT EDITOR AND SEARCH FOR %# AND REPLACE IT WITH %h.<br>
+    TAKE CARE NOT TO REPLACE %%# WITH %h, BECAUSE THIS HAS A DIFFERENT MEANING<br>
+    IN THE OLD FORMAT (THE % IS ESCAPED WITH % RESULTING IN A <br>
+    SINGLE % AND # IS A NORMAL VALUE DELIMITER IN THIS CASE!)<br>
+    ALSO % ISN'T STORED AS %% ANYMORE, IT'S STORED AS %p NOW, DO THE SAME AS<br>
+    ABOVE TO CONVERT OLD TABLE FILES.<br>
+    ALSO, THE # AT THE END OF EACH LINE MUST BE REMOVED!</b></p>
+  <p align="left">&nbsp;</p>
+</div>

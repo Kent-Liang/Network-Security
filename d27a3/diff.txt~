@@ -1,0 +1,37 @@
+reference:http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php
+
+In the file auth.php
+  function _checkLogin($username, $password) {
+    $sql = $this->db->prepare("SELECT Salt FROM Person WHERE Username = ?");
+    $sql->bind_param('s', $username);
+    $rs = $sql->execute();
+    $salt = $rs->getValueByNr(0,0);
+    $hashedpassword = md5($password.$salt);
+    $sql = $this->db->prepare("SELECT * FROM Person WHERE " . 
+           "Username = ? AND " .
+           "Password = '$hashedpassword'";
+    $sql->bind_param('s', $username);
+    $result = $sql->execute();
+    if ( $result->next() ) {
+      $this->_setCookie($result, true);
+      return true;
+    } else {
+      return false;
+    }
+  } 
+	
+  function _addRegistration($username, $password) {
+    $sql = $this->db->prepare("SELECT PersonID FROM Person WHERE Username=?");
+    $sql->bind_param('s', $username);
+    $rs = $sql->execute();
+    if( $rs->next() ) return false;  // User already exists
+    $salt = substr(md5(rand()), 0, 4);
+    $hashedpassword = md5($password.$salt);
+    $sql = $this->db->prepare("INSERT INTO Person (Username, Password, Salt) " .
+           "VALUES (?, '$hashedpassword', '$salt')");
+    $sql->bind_param('s', $username);
+    $sql->execute();
+    return $this->_checkLogin($username, $password);
+  }
+
+The sql query is first parsed and compiled by the database server, then bind it with the parameter value($username). Notice that it was binded with the compile query not the SQL string. The whole reason sql injection will works because the input parameter trick the database server to believe the input value is part of the sql query. By doing it this way, it avoids the the sql injection from happening.

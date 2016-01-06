@@ -1,0 +1,205 @@
+
+<link rel="stylesheet" href="php-txt-db-api.css" type="text/css">
+
+<title>Neues</title><div align="center">
+  <h1 align="left"> Neues in der Txt-db-api (Changelog)</h1>
+  <p align="left">Da das Changelog in Englisch ist werde ich von nun an hier einige 
+    wichtige &Auml;nderungen der<br>
+    Txt-db-api kurz auff&uuml;hren.</p>
+  <h2 align="left"> Neu seit Version 0.2.0-Alpha-01</h2>
+  <p align="left">Im WHERE, ODER BY und GROUP BY teil k&ouml;nnen nun auch spelten 
+    verwendet werden die nach<br>
+    SELECT nicht aufgef&uuml;hrt wurden (sie m&uuml;ssen einfach in einer der 
+    Tabellen unter FROM sein)</p>
+  <p align="left">Funktionen werden nun unterst&uuml;tzt und zwar in den Statements 
+    SELECT, INSERT, UPDATE<br>
+    und DELETE. Dabei sind folgende Funktionen unterst&uuml;tzt:<br>
+    UNIX_TIMESTAMP, MD5, NOW, ABS, LCASE (oder LOWER), UCASE (oder UPPER).<br>
+    Man kann diese Funktionen auch im WHERE, GROUP BY und ORDER BY teil verwenden.</p>
+  <p align="left">Ebenfalls sind folgende gruppierenden Funktionen unterst&uuml;tzt 
+    (nur bei SELECT Statements):<br>
+    MIN, MAX, COUNT, SUM, AVG</p>
+  <p align="left">Im WHERE Teil k&ouml;nnen nun auch 'wert'='wert' und 'wert'=spalte 
+    kombinationen verwendet<br>
+    werden. </p>
+  <p align="left">Funktionen k&ouml;nnen auch direkt auf Werte angewand werden, 
+    z.B. md5('bla') oder ABS(-1)</p>
+  <p align="left">Bei Database wurde die Funktion getLastInsertId() hinzugef&uuml;gt, 
+    siehe Dokumentation.<br>
+  </p>
+  <p align="left">Das Error Handling hat sich ge&auml;ndert. Mit den funktionen 
+    txtdbapi_error_occurred(),<br>
+    txtdbapi_get_last_error() und txtdbapi_get_error() kann man pr&uuml;fen ob 
+    Fehler aufgetreten<br>
+    sind und kann diese gegebenenfalls abfragen. Siehe dazu die <a href="error_handling.html">Fehler 
+    Handling</a> Seite. </p>
+  <p align="left">Mario hat etwas an der Performance gebastelt und vorallem ORDER 
+    BY sollte einiges schneller<br>
+    sein nun.</p>
+  <p align="left">Die R&uuml;ckgabewerte von executeQuery() wurden auf false vereinheitlich 
+    f&uuml;r alle Statements<br>
+    (im Fehlerfalle)<br>
+    <br>
+    Hier sind nur die wichtigsten Neuerungen aufgef&uuml;hrt, der Rest steht im 
+    changelog. </p>
+  <h2 align="left">Neu seit Version 0.1.5-Alpha-01</h2>
+  <div align="left"> 
+    <p>DAS TABELLENFORMAT HAT IN VERSION 0.1.5-Alpha-01 NOCHMAL GE&Auml;NDERT:<br>
+      JEDES TABELLEN-FILE HAT NUN NOCH EINE DRITTE ZEILE F&Uuml;R DIE SPALTEN-KONFIGURATION,<br>
+      UND ZWAR WERDEN IN DIESER ZEILE DIE STANDART-WERTE F&Uuml;R DIE SPALTEN<br>
+      FESTGELEGT. UM DIE PORTIERUNG EINFACH ZU MACHEN K&Ouml;NNT IHR EINFACH EINE 
+      ZEILE<br>
+      UNTERHALB DER DATENTYPEN-ZEILE EINF&Uuml;GEN, UND SOVIELE # MACHEN WIE<br>
+      DIE ZEILE OBEN HAT, UND SONST NICHTS. NAT&Uuml;RLICH K&Ouml;NNT IHR ABER 
+      AUCH GLEICH<br>
+      DIE GEW&Uuml;NSCHTE STANDARDWERTE EINTRAGEN :)<br>
+    </p>
+    <p>Wie eine Tabelle im neusten Format etwa aussieht kann man <a href="examples/tut2.html">hier</a> 
+      sehen.</p>
+    <p>Aliase f&uuml;r Tabellen werden nun unterst&uuml;tzt (bei SELECT).</p>
+    <p>Informationen &uuml;ber reservierte W&ouml;rter und Zeichen sowie die Konfiguration 
+      der<br>
+      Text-Db-Api wurden dem Manual hinzugef&uuml;gt.</p>
+    <p>Wie oben schon erw&auml;hnt kann man nun f&uuml;r jede Spalte einen Standardwert 
+      festlegen,<br>
+      was nat&uuml;rlich auch &auml;nderungen am CREATE TABLE Statement mit sich 
+      bringt! <br>
+    </p>
+  </div>
+  <h2 align="left">Neu seit Version 0.1.4-Beta-01</h2>
+  <p align="left">Dies sollte die stabilste von allen Versionen sein (auch besser 
+    als die ohne &quot;-beta&quot;, ich hatte<br>
+    fr&uuml;her halt einfach eine andere Namensgebung).</p>
+  <p align="left">Windows Newlines sind nun wieder unterst&uuml;tzt (lesen), geschrieben 
+    werden aber nachwievor<br>
+    nur Unix newlines.</p>
+  <h2 align="left">Neu seit Version 0.1.3-Alpha-08</h2>
+  <p align="left">Das Error Handling wurde ein wenig ver&auml;ndert. Mit den Einstellungen 
+    $PRINT_ERRORS und <br>
+    $PRINT_WARNINGS kann man konfigurieren ob die Text-Db-Api Fehlermeldungen 
+    anzeigen<br>
+    soll oder nicht. Ebenfalls hat Database zwei neue Funktionen errorOccurred() 
+    und getLastErrors()<br>
+    um nach Fehlermeldungen zu pr&uuml;fen und diese zu empfangen.<br>
+    <br>
+    Beim LIST TABLES Statement k&ouml;nnen nun WHERE, GROUP BY, ORDER BY und LIMIT 
+    ebenfalls<br>
+    verwendet werden.<br>
+    <br>
+    Weiterhin hat es in const.php eine neue Einstellung $ORDER_CASE_SENSITIVE:<br>
+    Wenn auf 1 ist ORDER BY case sensitive (GROSS klein Schriebung wird unterschieden), 
+    <br>
+    ansonsten case insensitive (GROSS klein Schreibung wird NICHT unterschieden).</p>
+  <p align="left">&nbsp;</p>
+  <h2 align="left">Neu seit Version 0.1.3-Alpha-03/04</h2>
+  <p align="left">Also mal grunds&auml;tzlich gingen alpha 1 und 2 garnicht, sie 
+    l&ouml;schten ganze tabellen bei<br>
+    DELETE/ UPDATE :) Diese Probleme sollten nun behoben sein.<br>
+    Weiterhin wurde einige Bugs gefixt und vorallem an der performance gearbeitet!<br>
+    Im Forum kann man performance-vergleiche zwischen den alten und neuen<br>
+    Versionen ansehen. Bis zu 3-4 mal schneller jetzt!</p>
+  <p align="left">Bitte nur noch Unix newlines in den Tabellen Files benutzen 
+    (sofern ihr sie von hand<br>
+    editiert, ein guter texteditor wie ultraedit kann die newlines einfach ins 
+    unix format<br>
+    konvertieren. </p>
+  <p align="left">Beachtet das es immer noch eine Alpha ist, vielleicht enth&auml;lt 
+    diese Version ja immer <br>
+    noch so ein par unbemerkte Tabellen-l&ouml;sch-bugs...</p>
+  <h2 align="left">Neu seit Version 0.1.3-Alpha-02</h2>
+  <p align="left"><b>ACHTUNG: DAS TABELLEN FORMAT HAT IN VERSION 0.1.3-Alpha-02 
+    GE&Auml;NDERT!<br>
+    WHEN EIN # TEIL EINES FELDWERTES IST, IST ES NUN NICHT MEHR ALS<br>
+    %# IM TEXT FILE GESPEICHERT, SONDERN ALS %h!<br>
+    UM DIE ALTEN TABELLEN-TEXT-FILES ZU KONVERTIEREN<br>
+    MUSS MAN SIE EINFACH IN EINEM TEXTEDITOR &Ouml;FFNEN, NACH<br>
+    %# SUCHEN UND DURCH %h ERSETZTEN.<br>
+    PASST AUF DAS IHR NICHT %%# DURCH %h ERSETZT,<br>
+    DENN %%# HAT EINE ANDERE BEDEUTUNG IM ALTEN FORMAT<br>
+    (DAS % IST DURCH EIN % ESCAPED, WAS ZU EINEM EINFACHEN % WIRD, <br>
+    UND DAS # BEH&Auml;LT SEINE ABGRENZENDE WIRKUNG IN DIESEM FALLE!)<br>
+    EBENFALLS IST % NICHT MEHR ALS %% SONDERN ALS %p GESPEICHERT,<br>
+    UM DIE ALTEN TABELLEN ZU KONVERTIEREN MACHT ES GLEICH WIE<br>
+    OBEN. EBENFALLS MUSS DAS # AM ENDE JEDER ZEILE ENTFERNT WERDEN!</b></p>
+  <p align="left">Ansonsten enth&auml;lt diese Version vorallem bugfixes und performance 
+    verbesserungen.</p>
+  <p align="left">&nbsp; </p>
+  <h2 align="left">Neu seit Version 0.1.3-Alpha-01</h2>
+  <p align="left"><b>Beachte das dies eine Alpha Version ist!! F&uuml;r Bug Reports 
+    oder Beta(bzw. Alpha)-Tester<br>
+    bin ich sehr dankbar!!</b></p>
+  <p align="left">Die INSERT Performance wurde um einiges verbessert. Vorallem 
+    f&uuml;r grosse<br>
+    Tabellen. Wenn die Tabellen gr&ouml;sser werden wird INSERT nicht mehr langsamer<br>
+    so wie fr&uuml;her.</p>
+  <p align="left">Neue Einstellung in const.php: $LIKE_CASE_SENSITIVE. Wenn auf 
+    1 gesetzt<br>
+    dann ist LIKE case sensitive (gross-kleinschreibung wird unterschieden).<br>
+    Wenn auf 0, ist LIKE is case insensitive, d.h. gross klein schreibung wird 
+    NICHT <br>
+    unterschieden.</p>
+  <p align="left">Die gr&ouml;sse eines Datensatzes ist nicht mehr begrenzt. Daher 
+    wurde auch die Konstante<br>
+    RECORD_MAX_SIZE entfernt. Anstelle von RECORD_MAX_SIZE ist jetzt eine neue 
+    Konstante:<br>
+    ASSUMED_RECORD_SIZE. Diese begrenzt die gr&ouml;sse der Datens&auml;tze NICHT! 
+    Es ist ein intern<br>
+    verwendeter wert. Man sollte ich nicht auf &lt;1 setzten. Wenn man den Wert 
+    f&uuml;r ASSUMED_RECORD_SIZE<br>
+    geschickt w&auml;hlt, kann das INSERT einiges schneller machen. Am besten 
+    w&auml;hlt man f&uuml;r <br>
+    diese Konstante die durchschnittliche gr&ouml;sse eines Datensatzes. Wenn 
+    du dir nicht sicher bist,<br>
+    lass einfach den Standardwert.</p>
+  <p align="left">Ein Bug welcher die Zeichenkette like falsch interpretierte, 
+    wenn sie z.B. teil eines Tabellennamens<br>
+    war wurde gefixt.</p>
+  <p align="left">Das wildcard f&uuml;r LIKE ist nun % und nicht mehr *</p>
+  <p align="left">Mit LIKE kann nun auch nach dem wildcard selbst gesucht werden, 
+    dazu ist es mit dem escape char \<br>
+    zu versehen:<br>
+    &quot;SELECT * FROM myTable WHERE field LIKE '%test\%test%'&quot;<br>
+    Dieses Beispiel findet xxtest%testxx aber nicht xxtestAtestxx.<br>
+  </p>
+  <p align="left"> Beim Parser wurden einige Dinge umgeschrieben und es ist auch 
+    eine neue Datei hinzugekommen:<br>
+    stringparser.php</p>
+  <p align="left">&nbsp; </p>
+  <h2 align="left">Neu seit Version 0.1.2-Beta-06</h2>
+  <p align="left">LIKE wird nun auch unterst&uuml;tzt. Als wildcard * verwenden. 
+    Das ganze ist noch schlecht getestet<br>
+    und funktioniert eventuell nicht in allen f&auml;llen...</p>
+  <h2 align="left">Neu seit Version 0.1.2-Beta-05</h2>
+  <p align="left">Wenn man bei UPDATE oder DELETE Statements nach dem WHERE ein 
+    ; hatte und nach dem<br>
+    ; noch Leerschl&auml;ge kamen, so f&uuml;hrte das zu einem Fehler. Das ; wurde 
+    dann als Teil<br>
+    der WHERE Expression interpretiert. Dieser Fehler ist nun behoben. Man kann 
+    nun beliebig<br>
+    viele Leerschl&auml;ge nach dem ; haben.</p>
+  <h2 align="left">Neu seit Version 0.1.2-Beta-04</h2>
+  <p align="left">In SELECT Statements k&ouml;nnen nun GROUP BY und DISTINCT verwendet 
+    werden. Mehr dazu<br>
+    im SQL teil das Manuals.</p>
+  <h2 align="left">Neu seit Version 0.1.2-Beta-03</h2>
+  <p align="left">In der Konfigurations-Datei txt-db-api.php k&ouml;nnen nun f&uuml;r 
+    $DB_DIR und $API_HOME_DIR auch<br>
+    relative Pfade verwendet werden. Unter <a href="installation/index.html">Installation</a> 
+    hat es einen Abschnitt zu diesem Thema.</p>
+  <h2 align="left">Neu seit Version 0.1.2-Beta-02</h2>
+  <p align="left">Neu sind folgende Statements hinzugekommen: CREATE DATABASE, 
+    DROP DATABASE, DROP TABLE und<br>
+    LIST TABLES. Alle sind unter <a href="sql_limit.html">SQL Syntax</a> dokumentiert. 
+    <br>
+    Um CREATE DATABASE und DROP DATABASE Statements auszuf&uuml;hren braucht man 
+    eine Instanz der<br>
+    ROOT_DATABASE. Diese kiregt man folgendermassen: $db=new Database(ROOT_DATABASE); 
+    <br>
+    Das ganze ist vielleicht noch etwas ein &quot;Hack&quot;, aber wenn man sich 
+    an die regeln h&auml;lt und<br>
+    ROOT_DATABASE nur f&uuml;r CREATE DATABASE und DROP DATABASE verwendet l&auml;uft 
+    es gut.</p>
+  <h2 align="left">Vorherige Versionen</h2>
+  <p align="left">Wird erst seit 0.1.2-Beta-02 in deutsch gef&uuml;hrt.. siehe 
+    changelog.txt </p>
+  </div>

